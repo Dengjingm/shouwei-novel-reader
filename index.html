@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="paper">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="《你们修仙，凭什么我收尾？》前30章初步版本在线阅读。" />
+    <meta name="theme-color" content="#17130f" />
+    <title>你们修仙，凭什么我收尾？｜前30章</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="top-progress" aria-hidden="true"><span id="readProgress"></span></div>
+
+    <header class="topbar">
+      <button class="icon-button mobile-only" id="menuButton" type="button" aria-label="打开目录" aria-expanded="false">目录</button>
+      <a class="brand" href="#chapter-001" aria-label="返回第一章">
+        <span class="brand-mark">候</span>
+        <span>
+          <strong>你们修仙，凭什么我收尾？</strong>
+          <small>前30章 · 初步版本</small>
+        </span>
+      </a>
+      <div class="toolbar" aria-label="阅读设置">
+        <button class="icon-button" id="fontDown" type="button" aria-label="减小字号">字−</button>
+        <button class="icon-button" id="fontUp" type="button" aria-label="增大字号">字＋</button>
+        <button class="icon-button" id="themeButton" type="button" aria-label="切换阅读主题">夜读</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" id="sidebar" aria-label="章节目录">
+        <div class="sidebar-head">
+          <p class="eyebrow">卷一 · 欠候</p>
+          <h2>章节目录</h2>
+          <label class="search-box">
+            <span class="sr-only">搜索章节</span>
+            <input id="chapterSearch" type="search" placeholder="搜索章名" autocomplete="off" />
+          </label>
+        </div>
+        <nav id="chapterList"></nav>
+        <div class="sidebar-note">
+          <span>草稿说明</span>
+          <p>这是前30章初步版本。书名、设定与文字仍可能继续调整。</p>
+        </div>
+      </aside>
+
+      <button class="overlay" id="overlay" type="button" aria-label="关闭目录"></button>
+
+      <main class="reader" id="reader">
+        <section class="hero" id="hero">
+          <p class="eyebrow">玄幻 · 序债 · 收尾人</p>
+          <h1>你们修仙，<br />凭什么我收尾？</h1>
+          <p class="lede">别人突破、炼器、立阵，只管开头。那些被省掉的最后一步，最后都落到了最便宜的人身上。</p>
+          <div class="premise">
+            <span>接债</span><i></i><span>展账</span><i></i><span>归账</span><i></i><span>收证</span>
+          </div>
+          <button class="start-button" id="startReading" type="button">从第一章开始</button>
+        </section>
+
+        <article class="chapter" id="chapter" hidden>
+          <header class="chapter-head">
+            <p class="chapter-kicker" id="chapterKicker"></p>
+            <h1 id="chapterTitle"></h1>
+            <div class="chapter-meta">
+              <span id="chapterCount"></span>
+              <span>初步版本</span>
+            </div>
+          </header>
+          <div class="chapter-body" id="chapterBody"></div>
+          <footer class="chapter-footer">
+            <button id="prevChapter" type="button">← 上一章</button>
+            <button id="backToTop" type="button">回到章首</button>
+            <button id="nextChapter" type="button">下一章 →</button>
+          </footer>
+          <div class="end-mark" aria-hidden="true">未完待续</div>
+        </article>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
