@@ -132,7 +132,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json");
+  const response = await fetch(`./chapters.json?v=${Date.now()}`, { cache: "no-store" });
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
