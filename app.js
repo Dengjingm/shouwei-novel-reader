@@ -109,7 +109,7 @@ function renderChapter(index, { scroll = true } = {}) {
   els.prev.disabled = index === 0;
   els.next.disabled = index === state.chapters.length - 1;
   els.next.textContent = index === state.chapters.length - 1 ? "已读完前30章" : "下一章 →";
-  document.title = `${chapter.title}｜新版修行主线`;
+  document.title = `${chapter.title}｜废法缺一步，我来补`;
   renderChapterList(els.chapterSearch.value);
   closeMenu();
 
