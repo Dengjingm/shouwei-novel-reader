@@ -160,7 +160,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=complete-20261102");
+  const response = await fetch("./chapters.json?v=ensemble-20261102");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
