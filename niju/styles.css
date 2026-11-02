@@ -446,3 +446,11 @@ button { color: inherit; }
   .book-intro { font-size: 16px; line-height: 1.95; }
   .book-intro .intro-hook { font-size: 21px; margin-bottom: 24px; }
 }
+
+.chapter-body .scene-break {
+  width: 3em;
+  margin: 2.2em auto;
+  border: 0;
+  border-top: 1px solid currentColor;
+  opacity: .28;
+}

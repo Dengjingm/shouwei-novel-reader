@@ -102,6 +102,13 @@ function renderChapter(index, { scroll = true } = {}) {
   els.chapterBody.replaceChildren();
 
   chapter.body.split(/\n\s*\n/).forEach((block) => {
+    if (block.trim() === "***") {
+      const separator = document.createElement("hr");
+      separator.className = "scene-break";
+      separator.setAttribute("aria-label", "场景转换");
+      els.chapterBody.append(separator);
+      return;
+    }
     const paragraph = document.createElement("p");
     paragraph.textContent = block.replace(/\n/g, " ").trim();
     if (paragraph.textContent) els.chapterBody.append(paragraph);
@@ -142,7 +149,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=depth-20261102");
+  const response = await fetch("./chapters.json?v=repair-20261102b");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
