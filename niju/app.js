@@ -91,6 +91,7 @@ function renderChapter(index, { scroll = true } = {}) {
   const chapter = state.chapters[index];
   if (!chapter) return;
 
+  els.body.classList.remove("cover-mode");
   state.current = index;
   localStorage.setItem("niju-opening-v2-current", chapter.id);
   els.hero.hidden = true;
@@ -115,6 +116,15 @@ function renderChapter(index, { scroll = true } = {}) {
 
   if (scroll) window.scrollTo({ top: 0, behavior: "instant" });
   updateProgress();
+}
+
+function showCover() {
+  els.body.classList.add("cover-mode");
+  els.hero.hidden = false;
+  els.chapter.hidden = true;
+  document.title = "逆局｜简介";
+  closeMenu();
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 function navigate(index) {
@@ -144,14 +154,6 @@ async function init() {
   const hashIndex = chapterFromHash();
   if (hashIndex !== null) renderChapter(hashIndex, { scroll: false });
 
-  const savedId = localStorage.getItem("niju-opening-v2-current");
-  const savedIndex = state.chapters.findIndex(ch => ch.id === savedId);
-  const resume = document.querySelector("#resumeReading");
-  if (savedIndex >= 0) {
-    resume.hidden = false;
-    resume.textContent = `继续阅读 · 第${savedIndex + 1}章`;
-    resume.addEventListener("click", () => navigate(savedIndex));
-  }
   document.querySelector("#startReading").addEventListener("click", () => navigate(0));
   document.querySelector("#fontDown").addEventListener("click", () => setFontSize(state.fontSize - 1));
   document.querySelector("#fontUp").addEventListener("click", () => setFontSize(state.fontSize + 1));
@@ -166,10 +168,11 @@ async function init() {
   window.addEventListener("hashchange", () => {
     const index = chapterFromHash();
     if (index !== null) renderChapter(index);
+    else showCover();
   });
   window.addEventListener("scroll", updateProgress, { passive: true });
   window.addEventListener("keydown", (event) => {
-    if (event.target.matches("input, textarea")) return;
+    if (els.chapter.hidden || event.target.matches("input, textarea")) return;
     if (event.key === "ArrowLeft") navigate(state.current - 1);
     if (event.key === "ArrowRight") navigate(state.current + 1);
   });

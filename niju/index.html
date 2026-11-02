@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="《逆局》从现实开篇到首关《回声疗养院》完成，全21章在线阅读。" />
+    <meta name="description" content="《逆局》：普通人陈述进入异界，以任务报酬兑换力量。合作才能通关，更少的幸存者却可能得到更多分红。系统究竟在筛选什么？" />
     <meta name="theme-color" content="#17130f" />
     <title>逆局｜门后的世界</title>
-    <link rel="stylesheet" href="./styles.css?v=opening-20261102" />
+    <link rel="stylesheet" href="./styles.css?v=text-cover-20261102" />
   </head>
-  <body>
+  <body class="cover-mode">
     <div class="top-progress" aria-hidden="true"><span id="readProgress"></span></div>
 
     <header class="topbar">
       <button class="icon-button mobile-only" id="menuButton" type="button" aria-label="打开目录" aria-expanded="false">目录</button>
-      <a class="brand" href="#chapter-001" aria-label="返回第一章">
+      <a class="brand" href="#cover" aria-label="返回封面">
         <span class="brand-mark">逆</span>
         <span>
           <strong>逆局</strong>
@@ -47,15 +47,16 @@
       <button class="overlay" id="overlay" type="button" aria-label="关闭目录"></button>
 
       <main class="reader" id="reader">
-        <section class="hero" id="hero">
-          <p class="eyebrow">无限流 · 恐怖 · 信息博弈</p>
-          <h1>逆局<br />门后的世界</h1>
-          <p class="lede">陈述一直羡慕小说里那些亲手获得力量的人。当一扇真实的门在他面前打开，他开始核验代价，也开始作出无法让别人替他承担的选择。</p>
-          <div class="premise">
-            <span>21章</span><i></i><span>现实开篇至首关完成</span>
+        <section class="hero" id="hero" aria-label="逆局简介">
+          <h1>逆局</h1>
+          <div class="book-intro">
+            <p class="intro-hook">少一个人回来，<br />你的分红可能更多。</p>
+            <p>陈述是个喜欢玄幻小说的普通人。他羡慕书里的人能亲手获得力量，直到一张来自异界的邀请，让这种渴望有了真实的价码。</p>
+            <p>进入陌生的世界，完成任务，领取报酬，再用报酬兑换超越常人的身体与感官。系统给出目标、奖励和回程的条件，却从不替玩家揭开所有真相。</p>
+            <p>灾难背后，有彼此争夺的未知势力。同行的人，可能握着另一份委托。想活着走出去，陈述需要同伴；想得到更多，他又必须知道，同伴究竟隐瞒了什么。</p>
+            <p class="intro-question">可如果连信息差都是筛选的一部分——<br />系统为什么愿意，让他们变强？</p>
           </div>
-          <button class="start-button" id="startReading" type="button">从第一章开始</button>
-          <button class="start-button" id="resumeReading" type="button" hidden>继续阅读</button>
+          <button class="start-button" id="startReading" type="button">开始阅读</button>
         </section>
 
         <article class="chapter" id="chapter" hidden>
@@ -79,6 +80,6 @@
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./app.js?v=opening-20261102"></script>
+    <script type="module" src="./app.js?v=text-cover-20261102"></script>
   </body>
 </html>

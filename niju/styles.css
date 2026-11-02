@@ -426,3 +426,23 @@ button { color: inherit; }
 
 [hidden] { display: none !important; }
 #resumeReading { margin-left: 10px; }
+
+/* Text-only book cover, followed by the existing reader. */
+.hero::after { content: none; }
+.hero { min-height: auto; padding: 48px 0; background: none; border: 0; box-shadow: none; overflow: visible; }
+.hero h1 { margin: 0 0 38px; font-size: clamp(62px, 11vw, 88px); line-height: 1.15; letter-spacing: .14em; font-weight: 600; }
+.book-intro { max-width: 34em; font-size: 17px; line-height: 1.95; color: var(--muted); }
+.book-intro p { margin: 0 0 22px; }
+.book-intro .intro-hook { color: var(--ink); font-size: 23px; line-height: 1.7; margin-bottom: 30px; }
+.book-intro .intro-question { color: var(--ink); margin-top: 30px; }
+.hero .start-button { margin-top: 10px; min-width: 148px; padding: 14px 28px; }
+.cover-mode .topbar, .cover-mode .sidebar, .cover-mode .top-progress, .cover-mode .toast, .cover-mode .overlay { display: none; }
+.cover-mode .layout { display: block; }
+.cover-mode .reader { max-width: 720px; min-height: 100vh; display: flex; align-items: center; padding: 40px 42px 60px; }
+@media (max-width: 600px) {
+  .cover-mode .reader { padding: 30px 28px 48px; align-items: flex-start; }
+  .hero { padding: 18px 0; }
+  .hero h1 { margin-bottom: 30px; }
+  .book-intro { font-size: 16px; line-height: 1.95; }
+  .book-intro .intro-hook { font-size: 21px; margin-bottom: 24px; }
+}
