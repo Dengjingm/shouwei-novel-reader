@@ -5,6 +5,17 @@ const state = {
   theme: localStorage.getItem("niju-theme") || "paper",
 };
 
+const readingPositionKey = "niju-complete-v3-current";
+
+function remapLegacyChapterUrl(rawUrl, data) {
+  const url = new URL(rawUrl);
+  if (!data.legacyVersions?.includes(url.searchParams.get("v"))) return null;
+  const mapped = data.legacyChapterMap?.[url.hash.slice(1)];
+  if (mapped) url.hash = mapped;
+  url.searchParams.set("v", data.revision);
+  return url.href;
+}
+
 const els = {
   body: document.body,
   chapter: document.querySelector("#chapter"),
@@ -93,7 +104,7 @@ function renderChapter(index, { scroll = true } = {}) {
 
   els.body.classList.remove("cover-mode");
   state.current = index;
-  localStorage.setItem("niju-opening-v2-current", chapter.id);
+  localStorage.setItem(readingPositionKey, chapter.id);
   els.hero.hidden = true;
   els.chapter.hidden = false;
   els.chapterKicker.textContent = `门后的世界 · 第 ${String(chapter.number).padStart(2, "0")} 章`;
@@ -149,10 +160,18 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=repair-20261102b");
+  const response = await fetch("./chapters.json?v=complete-20261102");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
+
+  const migratedUrl = remapLegacyChapterUrl(location.href, data);
+  if (migratedUrl) history.replaceState(null, "", migratedUrl);
+  if (!localStorage.getItem(readingPositionKey)) {
+    const previous = localStorage.getItem("niju-opening-v2-current");
+    const mapped = data.legacyChapterMap?.[previous];
+    if (mapped) localStorage.setItem(readingPositionKey, mapped);
+  }
 
   setTheme(state.theme);
   setFontSize(state.fontSize);
