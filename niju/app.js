@@ -5,7 +5,7 @@ const state = {
   theme: localStorage.getItem("niju-theme") || "paper",
 };
 
-const readingPositionKey = "niju-story-v6-current";
+const readingPositionKey = "niju-hunt-v7-current";
 
 function remapLegacyChapterUrl(rawUrl, data) {
   const url = new URL(rawUrl);
@@ -23,6 +23,7 @@ function migrateReadingPosition(storage, data) {
   const exists = (id) => data.chapters.some((chapter) => chapter.id === id);
   if (exists(storage.getItem(readingPositionKey))) return;
   const previousKeys = [
+    ["niju-story-v6-current", data.legacyChapterMaps?.["story-20261103"]],
     ["niju-pursuit-v5-current", data.legacyChapterMaps?.["pursuit-20261103"]],
     ["niju-expanded-v4-current", data.legacyChapterMaps?.["expanded-20261103"]],
     ["niju-complete-v3-current", data.legacyChapterMaps?.["ensemble-20261102"]],
@@ -181,7 +182,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=story-20261103");
+  const response = await fetch("./chapters.json?v=hunt-20261103");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
