@@ -182,7 +182,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=hunt-20261103");
+  const response = await fetch("./chapters.json?v=revision-20261105");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
