@@ -24,8 +24,6 @@ function migrateReadingPosition(storage, data) {
   if (exists(storage.getItem(readingPositionKey))) return;
   const previousKeys = [
     ["niju-hunt-v7-current", data.legacyChapterMaps?.["revision-20261105"]],
-    ["niju-stage-v8-current", data.legacyChapterMaps?.["revision-20261105"]],
-    ["niju-stage-v8-current", data.legacyChapterMaps?.["revision-20261105"]],
     ["niju-story-v6-current", data.legacyChapterMaps?.["story-20261103"]],
     ["niju-pursuit-v5-current", data.legacyChapterMaps?.["pursuit-20261103"]],
     ["niju-expanded-v4-current", data.legacyChapterMaps?.["expanded-20261103"]],
@@ -185,7 +183,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=stages-20261105");
+  const response = await fetch("./chapters.json?v=bargain-20261106");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
