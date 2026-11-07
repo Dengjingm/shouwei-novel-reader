@@ -130,7 +130,7 @@ function renderChapter(index, { scroll = true } = {}) {
   localStorage.setItem(readingPositionKey, chapter.id);
   els.hero.hidden = true;
   els.chapter.hidden = false;
-  els.chapterKicker.textContent = `门后的世界 · 第 ${String(chapter.number).padStart(2, "0")} 章`;
+  els.chapterKicker.textContent = `被记为自愿 · 第 ${String(chapter.number).padStart(2, "0")} 章`;
   els.chapterTitle.textContent = chapter.title.replace(/^第.+?章\s*/, "");
   els.chapterCount.textContent = `约 ${chapter.characterCount.toLocaleString("zh-CN")} 字`;
   els.chapterBody.replaceChildren();
@@ -151,7 +151,7 @@ function renderChapter(index, { scroll = true } = {}) {
   els.prev.disabled = index === 0;
   els.next.disabled = index === state.chapters.length - 1;
   els.next.textContent = index === state.chapters.length - 1 ? "本卷已读完" : "下一章 →";
-  document.title = `${chapter.title}｜逆局·门后的世界`;
+  document.title = `${chapter.title}｜逆局·被记为自愿`;
   renderChapterList(els.chapterSearch.value);
   closeMenu();
 
@@ -183,7 +183,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=threshold-20261107");
+  const response = await fetch("./chapters.json?v=consent-20261107");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;

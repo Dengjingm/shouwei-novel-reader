@@ -1,7 +1,7 @@
 {
   "title": "逆局",
-  "subtitle": "现实开篇至首关完成 · 21章",
-  "revision": "threshold-20261107",
+  "subtitle": "第一卷《被记为自愿》 · 21章",
+  "revision": "consent-20261107",
   "chapters": [
     {
       "id": "chapter-001",
@@ -168,7 +168,8 @@
     "continuity-20261106",
     "opening-causality-20261107",
     "opening-causality-20261107b",
-    "prose-20261107"
+    "prose-20261107",
+    "threshold-20261107"
   ],
   "legacyChapterMap": {
     "chapter-001": "chapter-001",
@@ -555,6 +556,29 @@
       "chapter-021": "chapter-021"
     },
     "prose-20261107": {
+      "chapter-001": "chapter-001",
+      "chapter-002": "chapter-002",
+      "chapter-003": "chapter-003",
+      "chapter-004": "chapter-004",
+      "chapter-005": "chapter-005",
+      "chapter-006": "chapter-006",
+      "chapter-007": "chapter-007",
+      "chapter-008": "chapter-008",
+      "chapter-009": "chapter-009",
+      "chapter-010": "chapter-010",
+      "chapter-011": "chapter-011",
+      "chapter-012": "chapter-012",
+      "chapter-013": "chapter-013",
+      "chapter-014": "chapter-014",
+      "chapter-015": "chapter-015",
+      "chapter-016": "chapter-016",
+      "chapter-017": "chapter-017",
+      "chapter-018": "chapter-018",
+      "chapter-019": "chapter-019",
+      "chapter-020": "chapter-020",
+      "chapter-021": "chapter-021"
+    },
+    "threshold-20261107": {
       "chapter-001": "chapter-001",
       "chapter-002": "chapter-002",
       "chapter-003": "chapter-003",
