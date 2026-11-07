@@ -183,7 +183,7 @@ function updateProgress() {
 }
 
 async function init() {
-  const response = await fetch("./chapters.json?v=consent-20261107");
+  const response = await fetch("./chapters.json?v=orientation-20261107");
   if (!response.ok) throw new Error("正文加载失败");
   const data = await response.json();
   state.chapters = data.chapters;
